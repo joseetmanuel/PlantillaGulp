@@ -21,7 +21,8 @@ export class Query {
             }
             let errSQL = '';
             if(!params.UserId){
-                request.input('idUsuario', global.UserId);
+                request.input('idUsuario', 2);
+                // request.input('idUsuario', global.UserId);
             }
             request.output("err", sql.VarChar(500), errSQL)
             request.execute(SP).then((recordsets: sql.IProcedureResult<any>,

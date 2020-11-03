@@ -14,6 +14,9 @@ import { PdfOrdenController } from './controllers/pdfOrden.controller';
 Container.get(PdfOrdenRepository);
 
 
+import { TiketRepository } from './repository/tiket.repository';
+import { TiketController } from './controllers/tiket.controller';
+Container.get(TiketRepository);
 
 //obtenemos el puerto del conf
 const env: string = process.env.NODE_ENV || 'qa';
@@ -30,7 +33,8 @@ useContainer(Container);
 let app = createExpressServer({
     cors: true,
     controllers: [ // Cada uno de los controlests de arriba
-        PdfOrdenController
+        PdfOrdenController,
+        TiketController
     ]
 });
 
