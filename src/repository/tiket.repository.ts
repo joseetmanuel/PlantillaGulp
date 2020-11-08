@@ -42,6 +42,51 @@ export class TiketRepository {
         return this.query.spExecute(query, "[tiket].[SEL_TIKETS_SP]")
     }
 
+    getComentarios(query: any): PromiseLike<{}> {
+        return this.query.spExecute(query, "[tiket].[SEL_COMENTARIOS_SP]")
+    }
+
+    getTiket(query: any): PromiseLike<{}> {
+        console.log(query);
+        return this.query.spExecute(query, "[tiket].[SEL_TIKET_SP]")
+    }
+
+
+    getComentario(query: any): PromiseLike<{}> {
+        console.log(query);
+        return this.query.spExecute(query, "[tiket].[SEL_COMENTARIO_SP]")
+    }
+
+
+    // ************ Servicios POST ************
+
+    postTiket(body: any): PromiseLike<{}> {
+        return this.query.spExecute(body, "[tiket].[INS_TIKET_SP]")
+    }
+
+    postComentario(body: any): PromiseLike<{}> {
+        return this.query.spExecute(body, "[tiket].[INS_COMENTARIO_SP]")
+    }
+
+    // ************ Servicios PUT ************
+
+    putTiket(body: any): PromiseLike<{}> {
+        return this.query.spExecute(body, '[tiket].[UPD_TIKET_SP]')
+    }
+
+    putComentario(body: any): PromiseLike<{}> {
+        return this.query.spExecute(body, '[tiket].[UPD_COMENTARIO_SP]')
+    }
+
+    // ************ Servicios DELETE ************
+    deleteTiket(body: any): PromiseLike<{}> {
+        return this.query.spExecute(body, '[tiket].[DEL_TIKET_SP]')
+    }
+    
+    deleteComentario(body: any): PromiseLike<{}> {
+        return this.query.spExecute(body, '[tiket].[DEL_COMENTARIO_SP]')
+    }
+
     /**
    * Plantilla de ejemplo para un servicio GET
    * @summary Metodo para esperar delayInms milisegundos

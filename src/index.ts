@@ -18,6 +18,18 @@ import { TiketRepository } from './repository/tiket.repository';
 import { TiketController } from './controllers/tiket.controller';
 Container.get(TiketRepository);
 
+
+import { RelacionRepository } from './repository/relacion.repository';
+import { RelacionController } from './controllers/relacion.controller';
+Container.get(RelacionRepository);
+
+
+
+import { CatalogoRepository } from './repository/catalogo.repository';
+import { CatalogoController } from './controllers/catalogo.controller';
+Container.get(CatalogoRepository);
+
+
 //obtenemos el puerto del conf
 const env: string = process.env.NODE_ENV || 'qa';
 const conf: any = (config as any)[env]; 
@@ -34,7 +46,10 @@ let app = createExpressServer({
     cors: true,
     controllers: [ // Cada uno de los controlests de arriba
         PdfOrdenController,
-        TiketController
+        TiketController,
+        CatalogoController,
+        RelacionController
+
     ]
 });
 
