@@ -108,6 +108,14 @@ export class CatalogoRepository {
         return this.query.spExecute(query, "[catalogo].[SEL_USUARIOS_SP]")
     }
 
+    getTipoTickets(query: any): PromiseLike<{}> {
+        return this.query.spExecute(query, "[catalogo].[SEL_TIPOSTICKETS_SP]")
+    }
+
+    getTipoPrioridad(query: any): PromiseLike<{}> {
+        return this.query.spExecute(query, "[catalogo].[SEL_TIPOSPRIORIDADES_SP]")
+    }
+
 
     // ************ Servicios POST ************
 
@@ -211,6 +219,8 @@ export class CatalogoRepository {
         return this.query.spExecute(query, "[catalogo].[DEL_USUARIO_SP]")
     }
 
+
+    
     /**
    * Plantilla de ejemplo para un servicio GET
    * @summary Metodo para esperar delayInms milisegundos

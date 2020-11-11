@@ -151,8 +151,8 @@ getComentario(@Req() req: Request) {
     * Wiki: 
     */
    @Delete('/deleteTiket')
-   deleteTiket(@Body() body: Request) {
-       return this.repository.deleteTiket(body);
+   deleteTiket(@Req() req: Request) {
+       return this.repository.deleteTiket(req.query);
    }
 
        // ************ Servicios DELETE ************

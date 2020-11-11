@@ -19,9 +19,7 @@ export class CatalogoController {
   constructor(repository: CatalogoRepository) {
     this.repository = repository;
   }
-
-
-  // ************ Servicios Get ************
+   // ************ Servicios Get ************
 
 
   @Get('/getCuenta/:id')
@@ -86,12 +84,12 @@ export class CatalogoController {
 
   @Get('/getTipoCuentas')
   getTipoCuentas(@Req() req: Request) {
-    return this.repository.getPuestos(req.query);
+    return this.repository.getTipoCuentas(req.query);
   }
 
   @Get('/getTipoDispositivos')
   getTipoDispositivos(@Req() req: Request) {
-    return this.repository.getPuestos(req.query);
+    return this.repository.getTipoDispositivos(req.query);
   }
 
   @Get('/getUsuario/:_idUsuario')
@@ -104,6 +102,14 @@ export class CatalogoController {
     return this.repository.getUsuarios(req.query);
   }
 
+  @Get('/getTipoTickets')
+  getTipoTickets(@Req() req: Request) {
+    return this.repository.getTipoTickets(req.query);
+  }
+  @Get('/getTipoPrioridad')
+  getTipoPrioridad(@Req() req: Request) {
+    return this.repository.getTipoPrioridad(req.query);
+  }
 
 
 
@@ -134,9 +140,7 @@ export class CatalogoController {
   postUsuario(@Body() body: Request) {
     return this.repository.postUsuario(body);
   }
-
-
-
+ 
   // ************ Servicios PUT ************
 
 
@@ -170,28 +174,30 @@ export class CatalogoController {
 
 
   @Delete('/deleteCuenta')
-  deleteCuenta(@Body() body: Request) {
-    return this.repository.deleteCuenta(body);
+  deleteCuenta(@Req() req: Request) {
+    return this.repository.deleteCuenta(req.query);
   }
 
   @Delete('/deleteDispositivo')
-  deleteDispositivo(@Body() body: Request) {
-    return this.repository.deleteDispositivo(body);
+  deleteDispositivo(@Req() req: Request) {
+    return this.repository.deleteDispositivo(req.query);
   }
 
   @Delete('/deletePeriferico')
-  deletePeriferico(@Body() body: Request) {
-    return this.repository.deletePeriferico(body);
+  deletePeriferico(@Req() req: Request) {
+    return this.repository.deletePeriferico(req.query);
   }
 
   @Delete('/deletePuesto')
-  deletePuesto(@Body() body: Request) {
-    return this.repository.deletePuesto(body);
+  deletePuesto(@Req() req: Request) {
+    return this.repository.deletePuesto(req.query);
   }
 
   @Delete('/deleteUsuario')
-  deleteUsuario(@Body() body: Request) {
-    return this.repository.deleteUsuario(body);
+  deleteUsuario(@Req() req: Request) {
+    return this.repository.deleteUsuario(req.query);
   }
+
+ 
 
 }
